@@ -2,6 +2,7 @@ package com.example.noteapp;
 
 import android.app.Activity;
 import android.app.AlarmManager;
+import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.ContentValues;
 import android.content.Context;
@@ -17,6 +18,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import com.example.noteapp.NoteDateBaseHelper;
 
@@ -34,7 +36,11 @@ public class noteEdit extends Activity implements OnClickListener {
     public String last_content;//用來獲取edittext內容
     public String title_content;//用來獲取title內容
     private KeyEvent MotionEvent;
-
+    private static final int NOTIFICATION_ID = 0;
+    // Notification channel ID.
+    private static final String PRIMARY_CHANNEL_ID =
+            "primary_notification_channel";
+    private NotificationManager mNotificationManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -130,20 +136,5 @@ public class noteEdit extends Activity implements OnClickListener {
             InputMethodManager imm = (InputMethodManager)activity.getSystemService(Context.INPUT_METHOD_SERVICE);
             imm.hideSoftInputFromWindow(activity.getWindow().getDecorView().getWindowToken(), 0);
         }
-    }
-    // 按下設定鈕
-    public void onClickSetup(View view)
-    {
-        Calendar cal = Calendar.getInstance();
-        // 設定於 3 分鐘後執行
-        cal.add(Calendar.MINUTE, 1);
-        Toast.makeText(this,"設定成功",Toast.LENGTH_LONG).show();
-        Intent intent = new Intent(this, PlayReceiver.class);
-        intent.putExtra("msg", "play_hskay");
-
-        PendingIntent pi = PendingIntent.getBroadcast(this, 1, intent, PendingIntent.FLAG_ONE_SHOT);
-
-        AlarmManager am = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-        am.set(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), pi);
     }
 }
