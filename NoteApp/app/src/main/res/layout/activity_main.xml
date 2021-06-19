@@ -1,0 +1,71 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:text="記事本"
+        android:textStyle="bold"
+        android:textSize="22sp"
+        android:padding="15dp"
+        android:background="#000"
+        android:textColor="#fff"
+        />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="874dp"
+        android:layout_weight="1">
+
+        <ListView
+            android:id="@+id/listview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"></ListView>
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/btn_editnote"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:foregroundGravity="center_horizontal"
+                android:clickable="true"
+                android:src="@android:drawable/ic_input_add" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/btn_delete_all"
+                android:layout_width="wrap_content"
+                android:layout_height="113dp"
+                android:layout_gravity="end"
+                android:layout_margin="16dp"
+                android:clickable="true"
+                android:src="@android:drawable/ic_menu_delete" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
+
+
+
+
